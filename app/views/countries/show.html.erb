@@ -1,0 +1,19 @@
+<p>
+  <strong>Name:</strong>
+  <%= @country.name %>
+</p>
+ 
+<p>
+  <strong>Country Code:</strong>
+  <%= @country.country_code %>
+</p>
+<p>
+  <strong>Continent:</strong>
+  <%= @country.continent %>
+</p>
+ 
+<p>
+  <strong>Notes:</strong>
+  <%= @country.notes %>
+</p>
+<%= link_to 'Edit', edit_country_path(@country) %>
