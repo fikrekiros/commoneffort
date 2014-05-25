@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
     end
     
     def index
-        @artists = ArtistGroup.Artist.all
+        @artists = Artist.all
     end
     
     def show
