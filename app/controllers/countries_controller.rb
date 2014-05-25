@@ -14,7 +14,12 @@ class CountriesController < ApplicationController
           render 'new'
          end
     end
-
+   def destroy
+        @country = Country.find(params[:id])
+        @country.destroy
+ 
+        redirect_to @country
+    end
     def show
         @country = Country.find(params[:id])
     end
@@ -33,12 +38,7 @@ class CountriesController < ApplicationController
        else
          render 'edit'
     end
-    def destroy
-        @country = Country.find(params[:id])
-        @country.destroy
- 
-        redirect_to @country
-    end
+   
  end
 
    private

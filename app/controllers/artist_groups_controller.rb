@@ -15,6 +15,9 @@ class ArtistGroupsController < ApplicationController
   def show
         @artist_group = ArtistGroup.find(params[:id])
     end
+     def index
+        @artist_group = ArtistGroup.all
+    end
    def edit
         @artist_group = ArtistGroup.find(params[:id])
     end
@@ -31,7 +34,7 @@ class ArtistGroupsController < ApplicationController
         @artist_group = ArtistGroup.find(params[:id])
         @artist_group.destroy
  
-        redirect_to @country
+        redirect_to @artist_group
     end
   private
     def artist_group_params
