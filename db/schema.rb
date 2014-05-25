@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140524204603) do
+ActiveRecord::Schema.define(version: 20140524224318) do
+
+  create_table "artist_groups", force: true do |t|
+    t.string   "name"
+    t.integer  "member_count"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "artist_groups", ["country_id"], name: "index_artist_groups_on_country_id", using: :btree
+
+  create_table "artists", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "dob"
+    t.date     "join_date"
+    t.date     "depart_date"
+    t.integer  "artist_group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "artists", ["artist_group_id"], name: "index_artists_on_artist_group_id", using: :btree
 
   create_table "countries", force: true do |t|
     t.string   "name"

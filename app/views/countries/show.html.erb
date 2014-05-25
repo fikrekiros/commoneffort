@@ -1,3 +1,5 @@
+
+<h2>Countries </h2>
 <p>
   <strong>Name:</strong>
   <%= @country.name %>
@@ -16,4 +18,31 @@
   <strong>Notes:</strong>
   <%= @country.notes %>
 </p>
+<h2>Artist Groups</h2>
+<% @country.artist_groups.each do |group| %>
+  <p>
+    <strong>Artist Group Name:</strong>
+    <%= group.name %>
+  </p>
+ 
+  <p>
+    <strong>Number of Members:</strong>
+    <%= group.member_count %>
+  </p>
+<% end %>
+
+<h2>Add an Artist Group:</h2>
+<%= form_for([@country, @country.artist_groups.build]) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name%>
+  </p>
+  <p>
+    <%= f.label :member_count %><br>
+    <%= f.text_field :member_count %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 <%= link_to 'Edit', edit_country_path(@country) %>

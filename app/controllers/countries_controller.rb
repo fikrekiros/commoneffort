@@ -37,12 +37,13 @@ class CountriesController < ApplicationController
         @country = Country.find(params[:id])
         @country.destroy
  
-        redirect_to countries_path
+        redirect_to @country
     end
-  end
+ end
 
-    private
+   private
        def country_params
          params.require(:country).permit(:name , :country_code , :continent , :notes)
-       end
+    end
+
 end

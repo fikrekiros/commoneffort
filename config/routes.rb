@@ -59,6 +59,14 @@
 Commoneffort::Application.routes.draw do
  
   resources :countries
+
  
   root 'welcome#index'
+  resources :countries do
+     resources :artist_groups
+  end
+  resources :artist_groups do
+     resources :artists
+  end
+
 end

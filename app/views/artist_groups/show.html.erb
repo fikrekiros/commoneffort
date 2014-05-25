@@ -1,0 +1,53 @@
+
+<h2>Artist Group </h2>
+<p>
+  <strong>Artist Group Name:</strong>
+  <%= @artist_group.name %>
+</p>
+ 
+<p>
+  <strong>Member Count:</strong>
+  <%= @artist_group.member_count %>
+</p>
+<p>
+
+<h2>Artists </h2>
+<% @artist_group.artists.each do |artist| %>
+  <p>
+    <strong>Artist Name:</strong>
+    <%= artist.first_name + artist.last_name %>
+  </p>
+ 
+  <p>
+    <strong>DOB</strong>
+    <%= artist.dob%>
+  </p>
+<% end %>
+
+<h2>Add an Artist to the Group:</h2>
+<%= form_for([@artist_group, @artist_group.artists.build]) do |f| %>
+
+  <p>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :dob %><br>
+    <%= f.text_field :dob %>
+  </p>
+  <p>
+    <%= f.label :join_date %><br>
+    <%= f.text_field :join_date %>
+  </p>
+  <p>
+    <%= f.label :depart_date %><br>
+    <%= f.text_field :depart_date %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
