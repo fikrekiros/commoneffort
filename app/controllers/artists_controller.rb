@@ -1,8 +1,5 @@
 class ArtistsController < ApplicationController
-	def new
-		@artist = Artist.new
-	end
-
+	
 	def create
 		 #@country = Country.find(params[:country_id])
         @artist_group = ArtistGroup.find(params[:artist_group_id])
@@ -17,7 +14,26 @@ class ArtistsController < ApplicationController
         #redirect_to artist_group_path(@artist_group)
     end
     def index
-        @artists = Country.all
+        @artists = ArtistGroup.Artist.all
+    end
+    def show
+        @artist = Artist.find(params[:id])
+    end
+    def edit
+        @artist = Artist.find(params[:id])
+    end
+    def update
+       @artist = Artist.find(params[:id])
+ 
+       if @artist.update(artist_params)
+         redirect_to @artist
+         render 'edit'
+    end
+    def destroy
+        @artist = Artist.find(params[:id])
+        @artist.destroy
+ 
+        redirect_to @artist
     end
  
   private

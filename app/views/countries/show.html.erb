@@ -29,6 +29,10 @@
     <strong>Number of Members:</strong>
     <%= group.member_count %>
   </p>
+   <td><%= link_to 'Show', artist_group_path(group) %></td>
+    <td><%= link_to 'Edit', edit_artist_group_path(group) %></td>
+     <td><%= link_to 'Destroy', artist_group_path(group),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>
 
 <h2>Add an Artist Group:</h2>

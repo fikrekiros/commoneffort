@@ -1,0 +1,15 @@
+<%= form_for :artist_group, url: artist_group_path(@artist_group), method: :patch do |f| %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :member_count %><br>
+    <%= f.text_field :member_count %>
+  </p>
+  
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

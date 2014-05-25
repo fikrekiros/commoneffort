@@ -15,7 +15,24 @@ class ArtistGroupsController < ApplicationController
   def show
         @artist_group = ArtistGroup.find(params[:id])
     end
+   def edit
+        @artist_group = ArtistGroup.find(params[:id])
+    end
+     def update
+        @artist_group = ArtistGroup.find(params[:id])
  
+       if @artist_group.update(artist_group_params)
+         redirect_to @artist_group
+       else
+         render 'edit'
+     end
+    end
+    def destroy
+        @artist_group = ArtistGroup.find(params[:id])
+        @artist_group.destroy
+ 
+        redirect_to @country
+    end
   private
     def artist_group_params
       params.require(:artist_group).permit(:name, :member_count)

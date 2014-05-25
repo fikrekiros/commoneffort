@@ -1,17 +1,13 @@
-<h1>Listing Countries</h1>
-<%= link_to 'New Artist', new_artist_path %>
- 
 <table>
   <tr>
     <th>Name</th>
-    <th>Age</th>
-    <th>Continent</th>
-    <th>Notes</th>
+    
   </tr>
  
-  <% @artists.each do |artist| %>
+  <% @artist_group.artists.each do |artist| %>
     <tr>
-    
+      <td><%= artist.first_name %></td>
+      
     </tr>
   <% end %>
 </table>
