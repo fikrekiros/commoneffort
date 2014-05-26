@@ -1,4 +1,5 @@
 #Rails.application.routes.draw do
+  #devise_for :users
   #get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -57,7 +58,10 @@
   #   end
 #end
 Commoneffort::Application.routes.draw do
+
+  mount Piggybak::Engine => '/checkout', :as => 'piggybak'
  
+  devise_for :users
   resources :countries
 
  
